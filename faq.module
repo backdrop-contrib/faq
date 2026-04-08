@@ -485,7 +485,7 @@ function faq_page($tid = 0, $faq_display = '', $category_display = '') {
       $query->orderBy('n.created', 'DESC');
     }
     if (module_exists('i18n_select')) {
-      $query->condition('n.language', i18n_select_langcodes());
+      $query->condition('n.langcode', i18n_select_langcodes());
     }
 
     // Only need the nid column.
@@ -676,9 +676,9 @@ function _display_faq_by_category($faq_display, $category_display, $term, $displ
     $query->orderBy('n.created', 'DESC');
   }
   if (module_exists('i18n_select')) {
-    $query->condition('n.language', i18n_select_langcodes());
+    $query->condition('n.langcode', i18n_select_langcodes());
     if (module_exists('i18n_taxonomy')) {
-      $query->condition("{$td_alias}.language", i18n_select_langcodes());
+      $query->condition("{$td_alias}.langcode", i18n_select_langcodes());
     }
   }
 
@@ -1113,7 +1113,7 @@ function faq_get_faq_list() {
     $query->orderBy('n.created', 'DESC');
   }
   if (module_exists('i18n_select')) {
-    $query->condition('n.language', i18n_select_langcodes());
+    $query->condition('n.langcode', i18n_select_langcodes());
   }
 
   // We only want the first column, which is nid, so that we can load all
@@ -1397,9 +1397,9 @@ function faq_get_child_categories_faqs($term, $theme_function, $default_weight, 
         $query->orderBy('n.created', 'DESC');
       }
       if (module_exists('i18n_select')) {
-        $query->condition('n.language', i18n_select_langcodes());
+        $query->condition('n.langcode', i18n_select_langcodes());
         if (module_exists('i18n_taxonomy')) {
-          $query->condition("{$td_alias}.language", i18n_select_langcodes());
+          $query->condition("{$td_alias}.langcode", i18n_select_langcodes());
         }
       }
 
